@@ -85,7 +85,6 @@
      yum: name="{{item.name}}" state=present enablerepo=isv_ownCloud_community
      with_items:
       - {name: owncloud}
-      - {name: owncloud-3rdparty}
 
    - name: git clone files_conoha
      git: repo={{ repository_files_conoha }}
