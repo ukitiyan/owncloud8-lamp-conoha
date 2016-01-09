@@ -7,7 +7,7 @@
     mysql_db_user: owncloud_dbadmin
     mysql_db_password: ownclouddb
     php_timezone: Asia/Tokyo
-    repository_files_conoha: https://github.com/layzy/files_conoha.git
+    repository_files_external_conoha: https://github.com/layzy/files_external_conoha.git
     path_document_root: /var/www/html/owncloud
   tasks:
    - name: OS timezon to JST
@@ -86,9 +86,9 @@
      with_items:
       - {name: owncloud}
 
-   - name: git clone files_conoha
-     git: repo={{ repository_files_conoha }}
-          dest={{ path_document_root }}/apps/files_conoha version=master accept_hostkey=yes
+   - name: git clone files_external_conoha
+     git: repo={{ repository_files_external_conoha }}
+          dest={{ path_document_root }}/apps/files_external_conoha version=master accept_hostkey=yes
 
    - name: make owncloud data dir
      file: dest=/home/data owner=apache group=apache state=directory
